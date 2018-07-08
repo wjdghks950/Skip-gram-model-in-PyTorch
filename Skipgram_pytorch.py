@@ -70,10 +70,10 @@ def get_input_layer(word_idx):
     return x
 
 # hidden layer
-embedding_dim = 5
+embedding_dim = 10
 W1 = Variable(torch.randn(embedding_dim, vocabulary_size).float(), requires_grad=True)
 W2 = Variable(torch.randn(vocabulary_size, embedding_dim).float(), requires_grad=True)
-epoch = 100
+epoch = 1000
 lr = 0.001
 
 for i in range(epoch):
@@ -98,5 +98,5 @@ for i in range(epoch):
         
         W1.grad.data.zero_()
         W2.grad.data.zero_()
-    if i % 10 == 0:
+    if i % 100 == 0:
         print("Epoch{}:".format(i), "Loss: {}".format(loss_val/len(idx_pairs)))
